@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- PALETA BASE --- */
+  /* Fondo general más dinámico (un blanco azulado muy sutil) */
+  --color-bg-main: #f8faff;
+  /* Color para superficies elevadas (tarjetas blancas) */
+  --color-bg-surface: #ffffff;
+  
+  /* --- ACENTOS VIBRANTES (Del formulario) --- */
+  --color-accent-start: #6366f1; /* Violeta/Indigo */
+  --color-accent-end: #d946ef;   /* Fucsia/Rosa */
+  
+  /* --- COLORES FUNCIONALES --- */
+  --color-input-bg: #ebf2ff;      /* Fondo de inputs */
+  --color-border-subtle: #e2e8f0; /* Bordes suaves para separar secciones */
+  
+  /* --- TIPOGRAFÍA --- */
+  --color-typography-primary: #1e293b; /* Azul muy oscuro */
+  --color-typography-secondary: #64748b; /* Gris azulado */
+  --color-typography-white: #ffffff;
+
+  --font-primary: "Archivo", sans-serif;
+  --font-secondary: "Aleo", serif;
+
+  /* --- SOMBRAS PERSONALIZADAS (La clave de la profundidad) --- */
+  /* Una sombra suave teñida de violeta para dar efecto de elevación */
+  --shadow-brand-soft: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+  /* Una sombra más intensa para elementos flotantes o hover */
+  --shadow-brand-hover: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
+}
+
+/* Estilos Globales */
+body {
+  /* CAMBIO CLAVE: Un fondo con un degradado sutil en lugar de un color plano */
+  background: linear-gradient(135deg, var(--color-input-bg) 0%, var(--color-bg-main) 100%);
+  @apply text-typography-primary font-primary font-normal text-base
+  flex flex-col min-h-screen;
+}
+
+footer {
+  @apply mt-auto py-8 text-center text-typography-secondary;
+}
+
+.container {
+  @apply max-w-5xl mx-auto px-6 py-12; /* Añadí padding vertical */
+}
+
+/* --- CLASES UTILITARIAS PARA DAR COLOR Y PROFUNDIDAD --- */
+
+/* 1. Tarjeta con "Glow" */
+/* Úsala para envolver tu formulario o secciones de contenido principal */
+.card-surface {
+  background-color: var(--color-bg-surface);
+  box-shadow: var(--shadow-brand-soft);
+  border: 1px solid var(--color-border-subtle);
+  @apply rounded-2xl p-8; /* Bordes redondeados modernos */
+}
+
+/* 2. Título con Degradado */
+/* Hace que el texto tenga el color del botón */
+.text-gradient-brand {
+  background: linear-gradient(90deg, var(--color-accent-start) 0%, var(--color-accent-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block; /* Necesario para que funcione el clip */
+}
+
+/* 3. Botón Principal (El del formulario) */
+.btn-brand {
+  background: linear-gradient(90deg, var(--color-accent-start) 0%, var(--color-accent-end) 100%);
+  @apply text-typography-white font-bold py-3 px-6 rounded-xl 
+  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer border-none;
+}
+
+/* 4. Inputs mejorados */
+.input-custom {
+  @apply bg-input-bg border border-transparent rounded-lg px-4 py-3 outline-none w-full
+  focus:border-accent-start/50 focus:bg-white focus:ring-4 focus:ring-accent-start/10 transition-all duration-300;
+}
+
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-secondary font-bold text-typography-primary;
+}
+/* El H1 ahora usa por defecto el degradado para más impacto */
+h1 { @apply text-4xl mb-6; }
+h2 { @apply text-3xl mb-4; }
