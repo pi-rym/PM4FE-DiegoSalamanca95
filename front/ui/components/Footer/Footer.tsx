@@ -1,20 +1,17 @@
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-border-subtle py-10 mt-20">
+    <footer className="bg-slate-950/90 border-t border-cyan-400/15 py-10 mt-20">
       <div className="container flex flex-col md:flex-row justify-between items-center gap-4">
-        {/* Nombre de la empresa */}
         <div className="flex flex-col items-center md:items-start">
           <span className="text-xl font-secondary font-bold text-typography-primary">
-            Tecnology <span className="text-accent-end">S.A.S</span>
+            Tecnology <span className="text-accent-start">S.A.S</span>
           </span>
-          <p className="text-sm text-typography-secondary">
-            Innovación y calidad en cada componente.
+          <p className="text-sm text-typography-secondary font-secondary">
+            Hardware, innovación y rendimiento.
           </p>
         </div>
-
-        {/* Copyright y Redes */}
-        <div className="text-typography-secondary text-sm">
-          © {new Date().getFullYear()} Todos los derechos reservados.
+        <div className="text-typography-secondary text-xs uppercase tracking-[0.2em] font-secondary">
+          © {new Date().getFullYear()} Sistema en línea
         </div>
       </div>
     </footer>

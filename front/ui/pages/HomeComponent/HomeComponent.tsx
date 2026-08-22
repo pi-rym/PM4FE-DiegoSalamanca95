@@ -28,6 +28,11 @@ const HomeComponent = () => {
     product.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  //const CategoryProducts = products.filter((product) =>
+  //  product.
+  //);
+
+
   return (
     <main className="container py-10 space-y-12">
       {/* SECCIÓN HERO / BUSCADOR */}
@@ -37,24 +42,24 @@ const HomeComponent = () => {
         </h1>
         
         {/* Input de Búsqueda Estilizado como 'card-surface' */}
-        <div className="relative w-full group">
-          <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-            <span className="text-xl group-focus-within:scale-110 transition-transform">🔍</span>
-          </div>
+        <label className="flex items-center gap-3 w-full rounded-2xl bg-input-bg border border-cyan-400/20 px-4 py-2 shadow-brand-soft focus-within:border-cyan-400/60 focus-within:ring-4 focus-within:ring-cyan-400/10 transition-all">
+          <span className="text-lg text-accent-start shrink-0" aria-hidden>
+            🔍
+          </span>
           <input
             type="text"
-            placeholder="¿Qué estás buscando hoy?"
+            placeholder="Buscar dispositivos, chips, modelos..."
             value={search}
             onChange={handleChange}
-            className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-border-subtle shadow-brand-soft outline-none focus:ring-2 focus:ring-accent-start/20 focus:border-accent-start transition-all text-typography-primary placeholder:text-typography-secondary/50"
+            className="flex-1 min-w-0 bg-transparent border-none outline-none py-2 text-typography-primary placeholder:text-typography-secondary/70"
           />
-        </div>
+        </label>
       </section>
 
       {/* MENSAJE DE ERROR SUTIL */}
       {isError && (
-        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md mb-6 shadow-sm">
-          <p className="text-yellow-700 text-sm font-medium">
+        <div className="bg-amber-500/10 border-l-4 border-amber-400 p-4 rounded-md mb-6">
+          <p className="text-amber-200 text-sm font-medium font-secondary">
             ⚠️ Estamos teniendo problemas para conectar. Mostrando catálogo local.
           </p>
         </div>

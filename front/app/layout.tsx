@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Aleo, Archivo } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "@/ui/components/Navbar/Nabvar";
 import Footer from "@/ui/components/Footer/Footer";
@@ -7,16 +7,14 @@ import { ToastContainer } from "react-toastify";
 import AuthProvider from "@/context/AuthContext";
 import CartProvider from "@/context/CartContext";
 
-const primaryFont = Archivo({
+const primaryFont = Geist({
   variable: "--font-primary",
   subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
-const secundaryFont = Aleo({
+const secundaryFont = Geist_Mono({
   variable: "--font-secondary",
   subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -30,15 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${primaryFont.variable} ${secundaryFont.variable} antialiased`}
       >
         <AuthProvider>
           <CartProvider>
-          <Navbar />
-          <main className="container">{children}</main>
-          <Footer /> <ToastContainer/>
+            <Navbar />
+            <main className="container py-8">{children}</main>
+            <Footer />
+            <ToastContainer theme="dark" />
           </CartProvider>
         </AuthProvider>
       </body>

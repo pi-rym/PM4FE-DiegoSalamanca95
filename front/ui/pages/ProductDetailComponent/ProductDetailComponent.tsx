@@ -8,7 +8,7 @@ const ProductDetailComponent = ({ product }: { product: Product }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         
         {/* COLUMNA IZQUIERDA: Imagen del Producto */}
-        <section className="card-surface p-8 bg-white flex justify-center items-center overflow-hidden group">
+        <section className="card-surface p-8 flex justify-center items-center overflow-hidden group">
           <div className="relative w-full aspect-square max-w-[400px] transition-transform duration-500 group-hover:scale-105">
             <Image
               src={product?.image}
@@ -37,8 +37,10 @@ const ProductDetailComponent = ({ product }: { product: Product }) => {
             <h1 className="text-4xl md:text-5xl font-secondary font-bold text-typography-primary leading-tight">
               {product?.name}
             </h1>
-            <p className="text-3xl font-bold text-gradient-brand">
+           <p className="text-3xl font-bold text-gradient-brand">
               ${product?.price}
+
+              {product?.categoryId === 5 ? " ⭐" : ""}
             </p>
           </div>
 
@@ -53,13 +55,16 @@ const ProductDetailComponent = ({ product }: { product: Product }) => {
             <p className="text-typography-secondary leading-relaxed text-lg">
               {product?.description}
             </p>
+            <p className="text-typography-secondary leading-relaxed text-lg">
+              {product?.description}
+            </p>
           </div>
 
           {/* Acción de Compra */}
           <div className="mt-8 p-6 rounded-2xl bg-input-bg/50 border border-border-subtle">
             <div className="flex flex-col gap-4">
               <p className="text-sm text-typography-secondary">
-                Pagos seguros y garantía oficial de **Technical Tecnology**.
+                Pagos seguros y garantía oficial de Technical Tecnology.
               </p>
               <AddToCartButton product={product} />
             </div>

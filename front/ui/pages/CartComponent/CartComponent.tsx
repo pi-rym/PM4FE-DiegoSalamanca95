@@ -116,7 +116,7 @@ const CartComponent = () => {
           >
             {isPending ? (
               <span className="flex items-center gap-2">
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-slate-950/30 border-t-slate-950 rounded-full animate-spin" />
                 Procesando...
               </span>
             ) : (

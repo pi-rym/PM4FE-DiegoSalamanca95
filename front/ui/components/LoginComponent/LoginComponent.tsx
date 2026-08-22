@@ -10,30 +10,27 @@ const LoginComponent = () => {
 
   const handleLogout = () => {
     logout();
-    // Redirección a login tras cerrar sesión
     router.push("/login");
   };
 
   if (isUserLoggedIn) {
     return (
-      <div className="flex gap-6 items-center">
-        {/* Enlace a Mi Perfil con estilo sutil y coherente */}
-        <Button 
-          isLink 
-          href="/dashboard" 
-          className="flex items-center gap-2 text-typography-primary font-semibold hover:text-accent-start transition-all"
+      <div className="flex gap-4 items-center">
+        <Button
+          isLink
+          href="/dashboard"
+          variant="ghost"
+          className="flex items-center gap-2 !px-2 !py-1 text-typography-primary hover:text-accent-start"
         >
-          {/* Avatar pequeño con el degradado de tu marca */}
-          <div className="w-8 h-8 rounded-full bg-gradient-brand flex items-center justify-center text-white text-[10px] shadow-sm">
+          <div className="w-8 h-8 rounded-full bg-gradient-brand flex items-center justify-center text-slate-950 text-[10px] shadow-sm">
             👤
           </div>
           Mi perfil
         </Button>
 
-        {/* Botón Logout con el estilo de texto interactivo */}
-        <button 
+        <button
           onClick={handleLogout}
-          className="text-sm font-bold text-typography-secondary hover:text-accent-end transition-all cursor-pointer border-b-2 border-transparent hover:border-accent-end py-1"
+          className="text-xs font-secondary font-bold uppercase tracking-widest text-typography-secondary hover:text-accent-start transition-all cursor-pointer"
         >
           Logout
         </button>
@@ -41,9 +38,8 @@ const LoginComponent = () => {
     );
   }
 
-  // Mantenemos el estilo de tu archivo inicial para el botón Login
   return (
-    <Button isLink href="/login">
+    <Button isLink href="/login" variant="secondary" className="text-xs uppercase tracking-widest !py-2">
       Login
     </Button>
   );

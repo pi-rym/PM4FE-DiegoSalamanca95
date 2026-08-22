@@ -81,30 +81,30 @@ const RegisterComponent = () => {
   }, [data]);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br text-black">
-      {/* Card */}
-      <div className="p-[2px] rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-xl">
+    <div className="flex justify-center items-center py-12">
+      <div className="p-[1px] rounded-2xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-500 shadow-brand-hover">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-5 w-96 bg-white/90 backdrop-blur-md p-8 rounded-2xl text-black"
+          className="flex flex-col gap-5 w-96 bg-slate-950/95 backdrop-blur-md p-8 rounded-2xl"
         >
-          {/* Header */}
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-black">
+            <p className="text-xs font-secondary uppercase tracking-[0.3em] text-accent-start mb-2">
+              Nuevo usuario
+            </p>
+            <h2 className="text-3xl font-bold text-typography-primary">
               Registro
             </h2>
-            <p className="text-sm text-black mt-1">
+            <p className="text-sm text-typography-secondary mt-1">
               Crea tu cuenta para continuar
             </p>
           </div>
 
-          {/* Name */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-medium text-black">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-typography-secondary">
               Nombre
             </span>
             <input
-              className="p-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="text"
               placeholder="Tu nombre"
               name="name"
@@ -113,17 +113,16 @@ const RegisterComponent = () => {
               onBlur={handleBlur}
             />
             {dirty.name && errors.name && (
-              <p className="text-red-600 text-sm">{errors.name}</p>
+              <p className="text-red-400 text-sm">{errors.name}</p>
             )}
           </label>
 
-          {/* Email */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-medium text-black">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-typography-secondary">
               Email
             </span>
             <input
-              className="p-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="email"
               placeholder="correo@ejemplo.com"
               name="email"
@@ -132,36 +131,40 @@ const RegisterComponent = () => {
               onBlur={handleBlur}
             />
             {dirty.email && errors.email && (
-              <p className="text-red-600 text-sm">{errors.email}</p>
+              <p className="text-red-400 text-sm">{errors.email}</p>
             )}
           </label>
 
-          {/* Password */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-medium text-black">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-typography-secondary">
               Password
             </span>
             <input
-              className="p-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="password"
-              placeholder="••••••••"
+              placeholder="Ej: Tech2026!"
               name="password"
+              autoComplete="new-password"
+              minLength={8}
+              maxLength={64}
               value={data.password}
               onChange={handleChange}
               onBlur={handleBlur}
             />
+            <p className="text-xs text-typography-secondary ml-1">
+              Mínimo 8 caracteres, con mayúscula, minúscula, número y símbolo.
+            </p>
             {dirty.password && errors.password && (
-              <p className="text-red-600 text-sm">{errors.password}</p>
+              <p className="text-red-400 text-sm">{errors.password}</p>
             )}
           </label>
 
-          {/* Address */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-medium text-black">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-typography-secondary">
               Dirección
             </span>
             <input
-              className="p-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="text"
               placeholder="Tu dirección"
               name="address"
@@ -170,17 +173,16 @@ const RegisterComponent = () => {
               onBlur={handleBlur}
             />
             {dirty.address && errors.address && (
-              <p className="text-red-600 text-sm">{errors.address}</p>
+              <p className="text-red-400 text-sm">{errors.address}</p>
             )}
           </label>
 
-          {/* Phone */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-medium text-black">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-typography-secondary">
               Teléfono
             </span>
             <input
-              className="p-3 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="tel"
               placeholder="3001234567"
               name="phone"
@@ -189,27 +191,14 @@ const RegisterComponent = () => {
               onBlur={handleBlur}
             />
             {dirty.phone && errors.phone && (
-              <p className="text-red-600 text-sm">{errors.phone}</p>
+              <p className="text-red-400 text-sm">{errors.phone}</p>
             )}
           </label>
 
-          {/* Button */}
           <Button
-            variant="tertiary"
+            variant="primary"
             type="submit"
-            //disabled={isFormDisable}
-            className="
-              mt-2
-              bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
-              text-white font-semibold
-              py-3 rounded-xl
-              transition-all duration-300 ease-in-out
-              hover:scale-[1.03] hover:shadow-xl
-              active:scale-95
-              disabled:opacity-50
-              disabled:cursor-not-allowed
-              disabled:hover:scale-100
-            "
+            className="mt-2"
           >
             {isFormDisable ? "Complete los campos" : "Registrarse"}
           </Button>

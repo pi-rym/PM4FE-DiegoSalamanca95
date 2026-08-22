@@ -19,7 +19,7 @@ const DashboardComponent = () => {
           <div className="card-surface sticky top-24 border border-accent-start/10">
             <div className="flex flex-col items-center text-center">
               {/* Avatar con degradado */}
-              <div className="w-20 h-20 rounded-full bg-gradient-brand flex items-center justify-center text-white text-3xl font-bold shadow-brand-soft mb-4">
+              <div className="w-20 h-20 rounded-full bg-gradient-brand flex items-center justify-center text-slate-950 text-3xl font-bold shadow-brand-soft mb-4">
                 {user?.user.name?.charAt(0).toUpperCase() || "U"}
               </div>
               <h2 className="text-xl font-secondary text-typography-primary">{user?.user.name}</h2>

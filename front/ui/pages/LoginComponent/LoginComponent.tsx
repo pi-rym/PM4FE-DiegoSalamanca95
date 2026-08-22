@@ -1,6 +1,6 @@
 "use client";
 
-import { validateEmail, validatePassword } from "@/helpers/validations";
+import { validateEmail, validateLoginPassword } from "@/helpers/validations";
 import Button from "@/ui/components/Button/Button";
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -59,35 +59,35 @@ const LoginComponent = () => {
   useEffect(() => {
     setErrors({
       email: validateEmail(data.email),
-      password: validatePassword(data.password),
+      password: validateLoginPassword(data.password),
     });
   }, [data]);
 
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-80px)] py-12 px-4 text-black">
-      {/* Card con borde de gradiente */}
-      <div className="p-[2px] rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-xl">
+    <div className="flex justify-center items-center min-h-[calc(100vh-80px)] py-12 px-4">
+      <div className="p-[1px] rounded-3xl bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-500 shadow-brand-hover">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-5 w-full max-w-sm bg-white p-8 md:p-10 rounded-[23px] text-black"
+          className="flex flex-col gap-5 w-full max-w-sm bg-slate-950/95 p-8 md:p-10 rounded-[23px]"
         >
-          {/* Header */}
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-black">
+            <p className="text-xs font-secondary uppercase tracking-[0.3em] text-accent-start mb-2">
+              Acceso
+            </p>
+            <h2 className="text-3xl font-bold text-typography-primary">
               Bienvenido
             </h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-typography-secondary mt-1">
               Inicia sesión para continuar
             </p>
           </div>
 
-          {/* Email */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-semibold text-gray-700 ml-1">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-semibold text-typography-secondary ml-1">
               Email
             </span>
             <input
-              className="p-3 rounded-xl border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="email"
               placeholder="correo@ejemplo.com"
               id="email"
@@ -97,17 +97,16 @@ const LoginComponent = () => {
               onBlur={handleBlur}
             />
             {dirty.email && errors.email && (
-              <p className="text-red-500 text-xs italic ml-1">{errors.email}</p>
+              <p className="text-red-400 text-xs italic ml-1">{errors.email}</p>
             )}
           </label>
 
-          {/* Password */}
-          <label className="flex flex-col gap-1 text-black">
-            <span className="text-sm font-semibold text-gray-700 ml-1">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-semibold text-typography-secondary ml-1">
               Password
             </span>
             <input
-              className="p-3 rounded-xl border border-gray-200 text-black focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+              className="input-custom"
               type="password"
               placeholder="••••••••"
               id="password"
@@ -117,36 +116,26 @@ const LoginComponent = () => {
               onBlur={handleBlur}
             />
             {dirty.password && errors.password && (
-              <p className="text-red-500 text-xs italic ml-1">{errors.password}</p>
+              <p className="text-red-400 text-xs italic ml-1">{errors.password}</p>
             )}
           </label>
 
-          {/* Login Button */}
           <Button
-            variant="tertiary"
+            variant="primary"
             type="submit"
             disabled={isFormDisable}
-            className="
-              mt-2
-              bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
-              text-white font-bold
-              py-3 rounded-xl
-              transition-all duration-300
-              hover:shadow-lg active:scale-95
-              disabled:opacity-50 disabled:cursor-not-allowed
-            "
+            className="mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isFormDisable ? "Complete los campos" : "Ingresar"}
           </Button>
 
-          {/* REGISTRO: Sección añadida para invitar al usuario */}
-          <div className="mt-4 pt-6 border-t border-gray-100 text-center">
-            <p className="text-sm text-gray-600">
+          <div className="mt-4 pt-6 border-t border-cyan-400/15 text-center">
+            <p className="text-sm text-typography-secondary">
               ¿No tienes una cuenta aún?
             </p>
-            <Link 
-              href="/register" 
-              className="inline-block mt-2 text-indigo-600 font-bold hover:text-purple-600 transition-colors underline-offset-4 hover:underline"
+            <Link
+              href="/register"
+              className="inline-block mt-2 text-accent-start font-bold hover:text-accent-end transition-colors"
             >
               Crea una cuenta aquí
             </Link>

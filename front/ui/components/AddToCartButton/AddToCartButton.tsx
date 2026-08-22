@@ -52,10 +52,10 @@ const AddToCartButton = ({ product }: AddToCartButtonProps) => {
       <Button 
         variant="secondary" 
         onClick={handleAddToCart}
-        className="w-full py-4 flex justify-center items-center gap-2 border-2 border-accent-start/20 hover:border-accent-start/50 bg-white shadow-brand-soft hover:scale-[1.02] active:scale-[0.98] transition-all"
+        className="w-full py-4 flex justify-center items-center gap-2"
       >
         <span className="text-xl">🛒</span>
-        <span className="font-bold bg-gradient-brand bg-clip-text text-black">
+        <span className="font-bold text-accent-start">
           Ir al carrito
         </span>
       </Button>
